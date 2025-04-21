@@ -23,7 +23,7 @@ def send_email():
             attachment.file_type = FileType("application/pdf")
             attachment.file_name = FileName(data["filename"])
             attachment.disposition = Disposition("attachment")
-            message.attachments = [attachment]
+            message.add_attachment(attachment)  # ✅ správný způsob
 
         sg = SendGridAPIClient(os.getenv("SENDGRID_API_KEY"))
         response = sg.send(message)
