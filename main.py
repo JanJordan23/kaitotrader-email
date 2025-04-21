@@ -12,7 +12,7 @@ def send_email():
         from_email="jan.jordan@email.cz",
         to_emails=data["to"],
         subject=data["subject"],
-        plain_text_content=data["text"]
+        plain_text_content=data["message"]
     )
     try:
         sg = SendGridAPIClient(os.getenv("SENDGRID_API_KEY"))
